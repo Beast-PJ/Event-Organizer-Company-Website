@@ -1,0 +1,346 @@
+/* Overall Countdown Container */
+#countdown-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space out items */
+    background: linear-gradient(135deg, #00c6ff 0%, #007bff 100%); /* Gradient background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    max-width: 1000px; /* Maximum width */
+    margin: 20px auto; /* Center horizontally */
+    animation: pulse 3s infinite; /* Pulse animation */
+}
+
+/* Countdown Text */
+#countdown-text {
+    flex: 1; /* Allow text to take up remaining space */
+    font-size: 1.8rem; /* Larger font size */
+    color: #ffffff; /* White text color */
+    font-family: 'Roboto', sans-serif; /* Custom font */
+    margin-right: 20px; /* Space between text and countdown */
+    font-weight: 700; /* Bold text */
+}
+
+/* Countdown Timer */
+#countdown-timer {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    flex: 2; /* Make timer container take more space */
+    gap: 15px; /* Increased space between countdown items */
+}
+
+/* Countdown Item */
+.countdown-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #007bff; /* Primary color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Increased padding */
+    margin: 0;
+    flex: 1; /* Flexbox layout for equal distribution */
+    max-width: 90px; /* Slightly larger max width */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    animation: flip 1s ease-in-out; /* Flip animation */
+}
+
+.countdown-item:hover {
+    background: #007bff; /* Primary color on hover */
+    color: #ffffff; /* White text on hover */
+    transform: scale(1.1); /* Zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Countdown Number */
+.countdown-number {
+    display: block;
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 700; /* Bold text */
+    font-family: 'Roboto', sans-serif; /* Custom font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Enhanced text shadow */
+}
+
+/* Countdown Label */
+.countdown-label {
+    font-size: 1rem; /* Smaller label font size */
+    color: #333333; /* Darker color for labels */
+    font-family: 'Roboto', sans-serif; /* Custom font */
+    font-weight: 500; /* Medium font weight */
+}
+
+/* Button Primary */
+.btn-primary {
+    margin-left: 20px; /* Space between timer and button */
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    animation: pulseButton 3s infinite; /* Button pulse animation */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Keyframe Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(180deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* General Styles */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-img-top {
+    transition: transform 0.4s ease;
+    filter: brightness(80%);
+}
+
+.card-body {
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    position: relative;
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Services List */
+.card ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.card ul li {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card ul li i {
+    margin-right: 10px;
+    color: #007bff; /* Primary color */
+}
+
+/* Shine Effect */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: opacity 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Specific Card Styles */
+.card.rocking-rangpanchami {
+    border: 2px solid #ff5722; /* Vibrant color */
+}
+
+.card.zimma-fugadi {
+    border: 2px solid #00bcd4; /* Vibrant color */
+}
+
+.card.bai-pn-bhari-deva {
+    border: 2px solid #ff9800; /* Vibrant color */
+}
+
+.card.rocking-rangpanchami .card-title {
+    color: #ff5722;
+}
+
+.card.zimma-fugadi .card-title {
+    color: #00bcd4;
+}
+
+.card.bai-pn-bhari-deva .card-title {
+    color: #ff9800;
+}
+
+.card.rocking-rangpanchami .btn {
+    background-color: #ff5722;
+    color: #fff;
+    border-radius: 25px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.card.zimma-fugadi .btn {
+    background-color: #00bcd4;
+    color: #fff;
+    border-radius: 25px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.card.bai-pn-bhari-deva .btn {
+    background-color: #ff9800;
+    color: #fff;
+    border-radius: 25px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.card .btn:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image Hover Effect */
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.hiring-section {
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.hiring-section h2 {
+    font-family: inherit; /* Keep the imported font */
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hiring-section p.lead {
+    font-family: inherit; /* Keep the imported font */
+    color: #7f8c8d;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hiring-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hiring-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hiring-card i {
+    color: #2980b9;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.hiring-card h4 {
+    font-family: inherit; /* Keep the imported font */
+    font-weight: bold;
+    color: #2980b9;
+    margin-bottom: 15px;
+}
+
+.hiring-card p {
+    font-family: inherit; /* Keep the imported font */
+    color: #7f8c8d;
+    padding: 0 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hiring-card .btn-primary {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.hiring-card .btn-primary:hover {
+    background-color: #1a5276;
+    transform: scale(1.05);
+}
+
