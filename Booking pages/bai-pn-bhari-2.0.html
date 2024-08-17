@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai Pn Bhari Deva 2.0 Booking</title>
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <!-- Topbar Start -->
@@ -54,7 +66,7 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
                 <a href="/index.html" class="navbar-brand d-block d-lg-none">
-                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">ICE</span>CREAM</h1>
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">SISTER</span>SQUAD</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -66,7 +78,7 @@
                         <a href="/product.html" class="nav-item nav-link">Events</a>
                     </div>
                     <a href="/index.html" class="navbar-brand mx-5 d-none d-lg-block">
-                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">ICE</span>CREAM</h1>
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">SISTER</span>SQUAD</h1>
                     </a>
                     <div class="navbar-nav mr-auto py-0">
                         <a href="/service.html" class="nav-item nav-link">Service</a>
@@ -292,22 +304,48 @@
                     <span id="discountMessage"></span>
                 </div>
     
-                <div class="form-group">
-                    <label for="paymentLink">Payment Link:</label>
+                <div class="form-group" style="text-align: center; font-family: Arial, sans-serif; margin-top: 20px;">
+                    <label for="paymentLink" style="font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 20px; display: block;">Payment Link</label>
+                    
+                    <div style="position: relative; display: inline-block; margin-bottom: 20px;">
+                        <div style="margin-bottom: 10px;">
+                            <img src="/img/upi-icon.png" alt="UPI" style="width: 80px; height: 80px;">
+                        </div>
+                        <img src="/img/qr-code.jpg" alt="UPI QR Code" style="width: 220px; height: 220px; border: 4px solid #007bff; padding: 10px; border-radius: 20px; background-color: #f8f9fa; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);">
+                    </div>
+                    
                     <a id="paymentLink" href="upi://pay?pa=@upi&pn=John Doe&am=0&cu=INR" target="_blank">
-                        <button type="button">Pay via UPI</button>
+                        <button type="button" class="mobile-only" style="background-color: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.2em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                            Pay via UPI
+                        </button>
                     </a>
                 </div>
+                
+                <style>
+                    /* Hide the button on screens wider than 768px */
+                   
+                </style>
+                
+                
+                
     
                 <div class="form-group">
                     <label for="paymentProof">Upload Payment Proof:</label>
-                    <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required>
+                    <div class="file-upload-wrapper" data="Select your file!">
+                        <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required>
+                        <label for="paymentProof" class="file-upload-label">
+                            <span class="upload-icon" id="fileName">                   
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </span> 
+                        </label>
+                    </div>
                 </div>
+                
     
                 <button type="submit">Submit</button>
             </form>
     
-
+<!-- 
             <div id="successPopup" class="hidden">
                 <div class="popup-content">
                     <span class="close-button" onclick="closePopup()">&times;</span>
@@ -315,7 +353,7 @@
                     <p>Your registration has been successfully submitted. Thank you!</p>
                 </div>
             </div>
-            
+             -->
             
         </div>
     </div>
@@ -370,19 +408,6 @@
     <!-- <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="/mail/jqBootstrapValidation.min.js"></script>
-    <script src="/mail/contact.js"></script>
-
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
 
@@ -399,5 +424,7 @@
         });
     });
 </script>
+
+   
 </body>
 </html>
