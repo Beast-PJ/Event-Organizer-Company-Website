@@ -961,58 +961,227 @@ button[type="submit"]:hover {
     width: 100%;
     height: 100%;
 }
-/* Styles for the loading bar */
+
+/* Loading bar styles */
 #loadingBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid rgb(var(--vs-primary));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Other existing CSS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+    --vs-primary: 29 92 255;
+}
+
+/*Dialog Styles*/
+#overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Darker background */
-    z-index: 1000; /* Ensure it’s above other elements */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 999;
+    display: none; /* Hidden by default */
 }
 
-#loadingBar .loader {
-    border: 8px solid rgba(0, 0, 0, 0.1); /* Light grey */
-    border-left: 8px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    animation: spin 1.5s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Styles for the success popup */
+/* Success popup styling */
 #successPopup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    z-index: 1001; /* Ensure it’s above the loading bar */
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Increased shadow for a more modern look */
+    border-radius: 12px; /* Slightly increased border-radius */
     text-align: center;
-    display: none; /* Initially hidden */
+    padding: 40px; /* Increased padding for a more spacious look */
+    z-index: 1000;
+    animation: popupAnimation 0.4s ease-out; /* Adjusted animation duration */
+    border: 1px solid #ddd; /* Subtle border for added depth */
 }
 
-#successPopup .popup-content {
-    position: relative;
+#successPopup h2 {
+    font-size: 2.5rem; /* Increased font size */
+    margin-bottom: 20px;
+    color: #4CAF50;
+    font-family: 'Arial', sans-serif; /* Changed font family */
 }
 
-#successPopup .close-button {
+#successPopup p {
+    font-size: 1.2rem;
+    color: #333;
+    font-family: 'Arial', sans-serif; /* Changed font family */
+}
+
+#closePopupBtn {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    background: #4CAF50; /* Green background for close button */
+    border: none;
+    font-size: 1.8rem;
+    color: #fff; /* White color for close button text */
+    border-radius: 50%; /* Circular close button */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    color: #333;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#closePopupBtn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    color: #fff; /* Ensure text color remains white on hover */
+}
+
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Loading bar styles */
+#loadingBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid rgb(var(--vs-primary));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px dashed #1d5cff;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.file-upload-wrapper:hover {
+    background-color: #e6f0ff;
+    border-color: #0044cc;
+}
+
+.file-upload-label {
+    display: block;
+    font-weight: 600;
+    color: #1d5cff;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 2.5rem;
+    color: #1d5cff;
+    margin-bottom: 10px;
+}
+
+#paymentSection {
+    text-align: center;
+}
+
+#generateQRCodeButton, #payNowButton {
+    margin: 10px 0;
+}
+
+#qrCodeContainer {
+    margin-top: 15px;
+}
+
+#qrCodeImage {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    display: inline-block;
+    margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
 }
