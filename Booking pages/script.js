@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const kidsSelect = document.getElementById("kids");
     const paymentAmountSpan = document.getElementById("paymentAmount");
     const discountMessage1 = document.getElementById("discountMessage");
-
+    const paymentButton = document.getElementById("paymentButton");
     const payNowButton = document.getElementById("payNowButton");
-
+    const fileInput = document.getElementById("paymentProof");
+    const fileNameDisplay = document.getElementById("fileName");
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwVGft5FTlxoJv_6Mr73WtELAYkvtCyTefQU2DdOjNQk9TxfJjLs5-MPjtUq3lTYMUkTw/exec';
     const form = document.getElementById('registrationForm');
-    const generateQRCodeButton = document.getElementById("generateQRCodeButton");
 
     function updatePaymentAmount() {
         const numberOfAdults = parseInt(adultsSelect.value) || 0;
@@ -112,11 +112,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showSuccessPopup() {
         const popup = document.createElement('div');
-        popup.id = 'successPopup';
+        popup.id = 'successPopup1';
         popup.innerHTML = `
-            <button class="x" id="closePopupBtn">✖</button>
-            <h2>Booking Successful!</h2>
-            <p>Thank you for booking with us. We have received your booking.</p>
+            <div id="successPopup">
+                <span class="close-button" id="closePopupBtn" onclick="closePopup()">&times;</span>
+                <h3>Successfully Booked!</h3>
+                <p>Your registration has been successfully submitted. Thank you!</p>
+                <a href="https://chat.whatsapp.com/your-group-link" target="_blank" id="whatsappBtn">
+                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                </a>
+            </div>
         `;
         document.body.appendChild(popup);
         popup.style.display = 'block';
@@ -125,11 +130,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function closePopup() {
-        const popup = document.getElementById('successPopup');
+        const popup = document.getElementById('successPopup1');
         if (popup) {
             popup.remove();
-        }
+            const form = document.getElementById('registrationForm');
+            form.reset(); // Reset all inputs in the form
+            paymentAmountSpan.textContent="₹0.00";
+            discountMessage1.textContent="";
+            fileNameDisplay.innerHTML = `<i class="fas fa-cloud-upload-alt"></i>`;        }
     }
+   
+    
 
     function convertToBase64(file) {
         return new Promise((resolve, reject) => {
@@ -140,8 +151,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-
-    // Initialize payment amount and QR code display
     updatePaymentAmount();
     
 });
