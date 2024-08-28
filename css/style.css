@@ -6123,6 +6123,14 @@ a.close.disabled {
   transition: transform 0.6s ease-in-out;
 }
 
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+  max-height: 600px;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
     transition: none;
@@ -6358,6 +6366,14 @@ a.close.disabled {
   background-color: #6610f2 !important;
 }
 
+.bg-third {
+  background: linear-gradient(to right, #AE8625,#F7EF8A,#D2AC47,#EDC967) !important;
+}
+
+
+.bg-primary {
+  background-color: #6610f2 !important;
+}
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
@@ -6425,7 +6441,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #333333 !important;
+  background-color: #000000 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -9535,6 +9551,11 @@ a.text-primary:hover, a.text-primary:focus {
 .text-secondary {
   color: #2c0fad !important;
 }
+.text-gold {
+    background: linear-gradient(to right, #AE8625,#F7EF8A,#D2AC47,#EDC967);  
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+  }
 
 a.text-secondary:hover, a.text-secondary:focus {
   color: #21a9db !important;
@@ -9787,12 +9808,12 @@ h6,
   height: 50%;
   top: 0;
   left: 0;
-  background: #6610f2;
+  background: linear-gradient(to right, #AE8625,#F7EF8A,#D2AC47,#EDC967);  
 }
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: #333333;
+  color: white;
   font-size: 17px;
   font-weight: 500;
   outline: none;
@@ -9800,7 +9821,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #6610f2;
+  color: #ffd300;
 }
 
 @media (max-width: 991.98px) {

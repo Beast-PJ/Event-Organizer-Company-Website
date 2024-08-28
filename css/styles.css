@@ -1,3 +1,5 @@
+
+
 /* Overall Countdown Container */
 #countdown-container {
     display: flex;
@@ -404,8 +406,12 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .service-item {
+    .service-item{
         margin: 15px 0;
+    }
+    .countdown-item {
+        margin: 15px 0;
+
     }
 }
 
@@ -520,3 +526,233 @@
     margin-bottom: 0;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #countdown-container {
+        flex-direction: column;
+        padding: 5px;
+        max-width: 80%;
+        align-items: center;
+    }
+    
+    #countdown-text {
+        font-size: 1.1rem;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    #countdown-timer {
+        gap: 15px; /* Increased gap between countdown items */
+        justify-content: center;
+    }
+
+    .countdown-item {
+        padding: 8px; /* Increased padding */
+        max-width: 80px; /* Slightly increased item size */
+        font-size: 1.4rem;
+    }
+
+    .countdown-number {
+        font-size: 1.2rem;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    
+    }
+
+    .btn-primary {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        margin: 5px 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown-container {
+        padding: 3px;
+    }
+
+    #countdown-text {
+        font-size: 1rem;
+        margin: 4px 0;
+    }
+
+    #countdown-timer {
+        gap: 8px; /* Increased gap for smaller screens */
+    }
+
+    .countdown-item {
+        padding: 6px;
+        max-width: 50px; /* Adjusted item size */
+    }
+
+    .countdown-number {
+        font-size: 1.1rem;
+    }
+
+    .btn-primary {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        margin: 4px 0;
+    }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px; /* Add margin between cards */
+        transform: scale(0.95); /* Slightly reduce size */
+    }
+
+    .card-body {
+        padding: 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .card ul {
+        padding-left: 15px;
+    }
+
+    .card ul li {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .card ul li i {
+        margin-right: 8px;
+    }
+
+    .card .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+        transform: scale(0.9);
+    }
+
+    .card-body {
+        padding: 10px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .card ul {
+        padding-left: 10px;
+    }
+
+    .card ul li {
+        font-size: 0.7rem;
+        margin-bottom: 6px;
+    }
+
+    .card ul li i {
+        margin-right: 6px;
+    }
+
+    .card .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        border-radius: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .carousel-caption h4 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        margin: 0 15px;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-caption {
+        padding: 0.5rem;
+    }
+
+    .carousel-caption h4 {
+        font-size: 1rem;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        min-height: 250px;
+    }
+}
