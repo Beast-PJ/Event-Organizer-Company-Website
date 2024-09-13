@@ -387,7 +387,22 @@ body {
     background-color: #e0e0e0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.img-view {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+.img-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
 .map-view img {
     width: 100%;
     height: 100%;
@@ -530,12 +545,10 @@ body {
 
 /* Ticket Pricing Section */
 .ticket-pricing {
-    background: #e6f7ff; /* Light blue background */
+    background: #e6f7ff;
     padding: 60px 20px;
     border-radius: 15px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
     margin-bottom: 40px;
 }
 
@@ -558,15 +571,13 @@ body {
 }
 
 .pricing-option {
-    background: linear-gradient(135deg, #ffffff 50%, #e0f7fa 50%); /* Gradient background */
+    background: linear-gradient(135deg, #ffffff 50%, #e0f7fa 50%);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .pricing-option:hover {
@@ -579,7 +590,6 @@ body {
     color: #fff;
     padding: 15px;
     border-radius: 10px 10px 0 0;
-    position: relative;
 }
 
 .pricing-header i {
@@ -598,17 +608,44 @@ body {
 }
 
 .price {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: #ff4c4c;
     margin: 10px 0;
+}
+
+.group-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-pricing-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.price-tag {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ff4c4c;
+}
+
+.price-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
 }
 
 .description {
     font-size: 16px;
     color: #555;
     line-height: 1.6;
+    margin-top: 10px;
 }
+
 /* Event Rules & Precautions Section */
 .event-rules-precautions {
     background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Gradient background */
@@ -842,78 +879,6 @@ button[type="submit"]:hover {
     font-size: 16px;
 }
 
-/* Popup Styles */
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.popup-content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    animation: scaleIn 0.5s ease-out;
-}
-
-.popup-content h3 {
-    margin: 0 0 25px;
-    color: #333;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.popup-content p {
-    margin: 0;
-    color: #666;
-    font-size: 18px;
-}
-
-.popup-content .close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #0288d1;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.popup-content .close-button:hover {
-    background-color: #0277bd;
-    transform: scale(1.1);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-    from { transform: scale(0.8); }
-    to { transform: scale(1); }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1116,6 +1081,7 @@ button[type="submit"]:hover {
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
+
 /* Loading bar styles */
 #loadingBar {
     display: flex;
@@ -1203,22 +1169,74 @@ button[type="submit"]:hover {
     text-align: center;
 }
 
-#generateQRCodeButton, #payNowButton {
+#payNowButton {
     margin: 10px 0;
 }
 
-#qrCodeContainer {
-    margin-top: 15px;
-}
 
-#qrCodeImage {
-    width: 150px; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
-    display: inline-block;
-    margin-top: 15px;
-}
 @media screen and (min-width: 768px) {
     .mobile-only {
         display: none;
+    }
+}
+@media (max-width: 768px) {
+    #successPopup {
+        width: 90%;
+        max-width: 400px;
+        padding: 30px;
+    }
+
+    #successPopup h3 {
+        font-size: 2rem;
+    }
+
+    #successPopup p {
+        font-size: 1.1rem;
+    }
+
+    #whatsappBtn {
+        padding: 10px 30px;
+        font-size: 1.1rem;
+    }
+
+    #whatsappBtn i {
+        font-size: 1.3rem;
+    }
+
+    #closePopupBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #successPopup {
+        width: 90%;
+        max-width: 300px;
+        padding: 20px;
+    }
+
+    #successPopup h3 {
+        font-size: 1.7rem;
+    }
+
+    #successPopup p {
+        font-size: 1rem;
+    }
+
+    #whatsappBtn {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+
+    #whatsappBtn i {
+        font-size: 1.2rem;
+    }
+
+    #closePopupBtn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
     }
 }

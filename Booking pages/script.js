@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const adultPrice = 500; // Price per adult
-    const kidPrice = 300; // Price per kid
-    const discountThreshold = 5; // Number of tickets for discount eligibility
-    const discountPercentage = 10; // 10% discount
+    // Define the updated prices
+    const singleEntryPrice = 350;
+    const groupAdultPrice = 300;
+    const groupKidPrice = 200;
+    const kidSinglePrice = 250;
+    
+    // Threshold for group discount (e.g., 5 tickets or more for a group)
+    const groupThreshold = 5;
 
     const adultsSelect = document.getElementById("adults");
     const kidsSelect = document.getElementById("kids");
@@ -34,32 +38,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Prepare the payment link
         payNowButton.onclick = function() {
-            window.location.href = `upi://pay?pa=@upi&pn=John%20Doe&am=${totalAmount}&cu=INR`;
+            window.location.href = `upi://pay?pa=nayansolankure@okicici&pn=Sisters%20Squad&am=${totalAmount}&cu=INR`;
         };
     }
 
-    function updatePaymentAmount() {
-        const numberOfAdults = parseInt(adultsSelect.value) || 0;
-        const numberOfKids = parseInt(kidsSelect.value) || 0;
-        const totalTickets = numberOfAdults + numberOfKids;
 
-        let totalAmount = numberOfAdults * adultPrice + numberOfKids * kidPrice;
 
-        if (totalTickets > discountThreshold) {
-            const discountAmount = (totalAmount * discountPercentage) / 100;
-            totalAmount -= discountAmount;
-            discountMessage.textContent = `Discount Applied: ${discountPercentage}% off`;
-        } else {
-            discountMessage.textContent = '';
-        }
+function updatePaymentAmount() {
+    const numberOfAdults = parseInt(adultsSelect.value) || 0;
+    const numberOfKids = parseInt(kidsSelect.value) || 0;
+    const totalTickets = numberOfAdults + numberOfKids;
 
-        paymentAmountSpan.textContent = `₹${totalAmount.toFixed(2)}`;
+    let totalAmount = 0;
 
-        // Prepare the payment link
-        payNowButton.onclick = function() {
-            window.location.href = `upi://pay?pa=yourupi@upi&pn=John%20Doe&am=${totalAmount}&cu=INR`;
-        };
+    // Apply group pricing if total tickets are 5 or more
+    if (totalTickets >= groupThreshold) {
+        totalAmount = numberOfAdults * groupAdultPrice + numberOfKids * groupKidPrice;
+        discountMessage.textContent = `Group Pricing Applied: ₹300 per adult, ₹200 per kid.`;
+    } else {
+        // Apply individual pricing if less than 5 people
+        totalAmount = numberOfAdults * singleEntryPrice + numberOfKids * kidSinglePrice;
+        discountMessage.textContent = '';
     }
+
+    paymentAmountSpan.textContent = `₹${totalAmount.toFixed(2)}`;
+
+    // Prepare the payment link
+    payNowButton.onclick = function() {
+        window.location.href = `upi://pay?pa=nayansolankure@okicici&pn=Sisters%20Squad&am=${totalAmount}&cu=INR`;
+    };
+}
+
 
  
 
@@ -118,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span class="close-button" id="closePopupBtn" onclick="closePopup()">&times;</span>
                 <h3>Successfully Booked!</h3>
                 <p>Your registration has been successfully submitted. Thank you!</p>
-                <a href="https://chat.whatsapp.com/your-group-link" target="_blank" id="whatsappBtn">
+                <a href="https://chat.whatsapp.com/I61B8QxML5q5RqpNl1QiN3" target="_blank" id="whatsappBtn">
                     <i class="fab fa-whatsapp"></i> Join WhatsApp Group
                 </a>
             </div>
