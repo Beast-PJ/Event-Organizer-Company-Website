@@ -79,12 +79,6 @@ $ npm start
 
 ---
 
-## 📜 **License**
-
-This project is open-source and licensed under the **MIT License**. Check out the [LICENSE](LICENSE) file for more details.
-
----
-
 ## 💬 **Let’s Collaborate!**
 
 We’re all about collaboration and growth! For questions, feedback, or ideas, feel free to reach out at **p.jadhav61657@gmail.com**. Let’s create unforgettable events together!
