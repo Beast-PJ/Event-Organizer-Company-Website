@@ -128,7 +128,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Set the date of the next event
-    const nextEventDate = new Date('2024-09-01T00:00:00').getTime();
+    const nextEventDate = new Date('2025-10-23T00:00:00').getTime();
 
     // Update the countdown every second
     const interval = setInterval(function() {
